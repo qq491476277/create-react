@@ -1,53 +1,65 @@
 {
-  "name": "cli",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "description": "A boilerplate for react + typescript development",
-  "private ": true,
-  "author": {
-    "name": "ZengYongchao",
-    "url": "https://github.com/qq491476277",
-    "email": "491476277@qq.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com/qq491476277/cli.git"
-  },
-  "scripts": {
-    "test": "echo 'skip test...'",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "name": "cli",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "description": "A boilerplate for react + typescript development",
+    "private ": true,
+    "author": {
+        "name": "ZengYongchao",
+        "url": "https://github.com/qq491476277",
+        "email": "491476277@qq.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com/qq491476277/cli.git"
+    },
+    "scripts": {
+        "test": "echo 'skip test...'",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -c .commitlintrc.js -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js}": [
+            "eslint -c .eslintrc.js"
+        ],
+        "*.{css,less,scss}": [
+            "stylelint --config .stylelintrc.json"
+        ],
+        "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+            "prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-angular": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "conventional-changelog-cli": "^2.1.1",
+        "eslint": "^7.16.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-import-resolver-typescript": "^2.3.0",
+        "eslint-plugin-eslint-comments": "^3.1.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.21.2",
+        "eslint-plugin-react-hooks": "^4.1.2",
+        "eslint-plugin-unicorn": "^24.0.0",
+        "husky": "^4.3.6",
+        "lint-staged": "^10.5.3",
+        "prettier": "^2.2.1",
+        "stylelint": "^13.8.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-scss": "^3.18.0"
     }
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-angular": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.16.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-import-resolver-typescript": "^2.3.0",
-    "eslint-plugin-eslint-comments": "^3.1.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.21.2",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-unicorn": "^24.0.0",
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
-    "prettier": "^2.2.1",
-    "stylelint": "^13.8.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.18.0"
-  }
 }
