@@ -1,3 +1,3 @@
 function test() {
-    console(7)
+    console(7123)
 }
